@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text(
           "Taskly!",
           style: TextStyle(
-            fontSize: 25,
+            fontSize: 24,
           ),
         ),
       ),
