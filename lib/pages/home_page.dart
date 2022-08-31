@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,6 +26,25 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      body: _taskList(),
+    );
+  }
+
+  Widget _taskList() {
+    return ListView(
+      children: [
+        ListTile(
+          title: const Text(
+            "Cook Food!",
+            style: TextStyle(decoration: TextDecoration.lineThrough),
+          ),
+          subtitle: Text(DateTime.now().toString()),
+          trailing: const Icon(
+            Icons.check_box_outlined,
+            color: Colors.greenAccent,
+          ),
+        ),
+      ],
     );
   }
 }
