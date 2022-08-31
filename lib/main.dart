@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_flutter/pages/home_page.dart';
 
-void main() {
+import 'package:hive_flutter/adapters.dart';
+
+void main() async {
+  await Hive.initFlutter("hive_boxes");
   runApp(const MyApp());
 }
 
