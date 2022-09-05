@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:to_do_flutter/models/task.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -52,20 +53,27 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _taskList() {
-    return ListView(
-      children: [
-        ListTile(
-          title: const Text(
-            "Cook Food!",
-            style: TextStyle(decoration: TextDecoration.lineThrough),
+    List tasks = _box!.values.toList();
+    return ListView.builder(
+      itemCount: tasks.length,
+      itemBuilder: (BuildContext _context, int _index) {
+        var task = Task.fromMap(tasks[_index]);
+        return ListTile(
+          title: Text(
+            task.content,
+            style: TextStyle(
+              decoration: task.done ? TextDecoration.lineThrough : null,
+            ),
           ),
-          subtitle: Text(DateTime.now().toString()),
-          trailing: const Icon(
-            Icons.check_box_outlined,
+          subtitle: Text(task.timestamp.toString()),
+          trailing: Icon(
+            task.done
+                ? Icons.check_box_outlined
+                : Icons.check_box_outline_blank_outlined,
             color: Colors.greenAccent,
           ),
-        ),
-      ],
+        );
+      },
     );
   }
 
