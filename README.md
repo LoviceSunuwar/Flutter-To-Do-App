@@ -1,4 +1,4 @@
-ntroduction to the Flutter To-Do App
+Introduction to the Flutter To-Do App
 
 The Flutter To-Do App is a user-friendly and intuitive platform that serves as a digital task manager. It enables users to create, organize, and prioritize their to-do lists, ensuring that they can stay on top of their daily responsibilities and goals.
 
